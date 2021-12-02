@@ -1,0 +1,39 @@
+@page "/account-login"
+
+<h1>@NewLogin</h1>
+
+<p>
+
+<label>
+        Username
+        <input @bind="NewLogin" />
+    </label>
+    <label>
+        Password
+
+        <input @bind="NewLogin" />
+    </label>
+    
+<br/>
+<br/>
+    <button @onclick="LOGIN">
+        LOGIN
+    </button>
+
+</p>
+
+@code {
+    private string currentHeading = "Initial heading";
+    private string? NewLogin;
+    private string checkedMessage = "Not changed yet";
+
+    private void LOGIN()
+    {
+        currentHeading = $"{NewLogin}!!!";
+    }
+
+    private void CheckChanged()
+    {
+        checkedMessage = $"Last changed at {DateTime.Now}";
+    }
+}
